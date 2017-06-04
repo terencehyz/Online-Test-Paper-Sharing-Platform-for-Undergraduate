@@ -1,0 +1,22 @@
+{
+  "name": "online-test-paper-sharing-platform-for-undergraduate",
+  "version": "1.0.0",
+  "description": "a vue project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/terencehyz/Online-Test-Paper-Sharing-Platform-for-Undergraduate.git"
+  },
+  "keywords": [
+    "vue"
+  ],
+  "author": "terencehyz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/terencehyz/Online-Test-Paper-Sharing-Platform-for-Undergraduate/issues"
+  },
+  "homepage": "https://github.com/terencehyz/Online-Test-Paper-Sharing-Platform-for-Undergraduate#readme"
+}
