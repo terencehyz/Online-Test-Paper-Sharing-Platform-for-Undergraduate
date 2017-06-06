@@ -1,7 +1,7 @@
 /**
  * Created by terencehyz on 2017/6/2.
  */
-var serverIp="http://47.93.31.225/project/";
+var serverIp="http://119.29.152.53/php/";
 var vm = new Vue({
    el:"myForget",
    data:{

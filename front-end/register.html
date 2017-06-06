@@ -14,7 +14,7 @@
     <script src="js/md5.js"></script>
 </head>
 <body style="background-color: #e6e6e6">
-<div id="app">
+<div id="myRegister">
     <div class="container-fluid">
         <div class="row logo" style="min-height: 100px;">
             <div class="col-xs-12">
@@ -34,7 +34,7 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="用户名" required="required" aria-required="true" v-model="">
+                                <input type="text" class="form-control" placeholder="用户名" required="required" aria-required="true" v-model="userInfo.name">
                             </div>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="邮箱" required="required" aria-required="true" v-model="">
+                                <input type="email" class="form-control" placeholder="邮箱" required="required" aria-required="true" v-model="userInfo.email">
                             </div>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="form-group">
-                                <input type="password" class="form-control" placeholder="密码" required="required" aria-required="true" v-model="">
+                                <input type="password" class="form-control" placeholder="密码" required="required" aria-required="true" v-model="userInfo.pwd">
                             </div>
                         </div>
                     </div>
@@ -58,7 +58,7 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="form-group">
-                                <input type="password" class="form-control" placeholder="确认密码" required="required" aria-required="true" v-model="">
+                                <input type="password" class="form-control" placeholder="确认密码" required="required" aria-required="true" v-model="userInfo.pwdConfirm">
                             </div>
                         </div>
                     </div>
@@ -66,7 +66,7 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="学校名称" required="required" aria-required="true" v-model="">
+                                <input type="text" class="form-control" placeholder="学校名称" required="required" aria-required="true" v-model="userInfo.school">
                             </div>
                         </div>
                     </div>
@@ -74,26 +74,26 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="学院" required="required" aria-required="true" v-model="">
+                                <input type="text" class="form-control" placeholder="学院" required="required" aria-required="true" v-model="userInfo.academy">
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-6">
                             <div class="form-group">
-                                <input type="password" class="form-control" placeholder="验证码" required="required" aria-required="true" v-model="">
+                                <input type="password" class="form-control" placeholder="验证码" required="required" aria-required="true" v-model="userInfo.confirmCode">
                             </div>
                         </div>
                         <div class="col-xs-6">
-                            <input class="btn btn-md btn-block btn-primary action-btn" type="button" data-loading-text="发送中..." id="send-btn" value="获取验证码">
+                            <input class="btn btn-md btn-block btn-primary action-btn" type="button" id="send-btn" value="获取验证码" v-on:click="getCode">
                         </div>
                     </div>
 
-                    <div class="alert alert-danger animated bounce" role="alert" v-show="">{{loginMessage}}</div>
+                    <div class="alert alert-danger animated bounce" role="alert" v-show="registerMessage.length">{{registerMessage}}</div>
 
                     <div class="row sign-up-sw">
                         <div class="col-xs-12">
-                            <button class="btn btn-lg btn-block btn-success action-btn" type="submit" v-on:click="login">注 册</button>
+                            <button class="btn btn-lg btn-block btn-success action-btn" type="submit" v-on:click="register">注 册</button>
                         </div>
                     </div>
                     <div class="row text-center" style="padding-top: 15px;">
@@ -116,6 +116,6 @@
 </div>
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
 <script src="node_modules/vue-resource/dist/vue-resource.js"></script>
-<script src="js/login.js"></script>
+<script src="js/register.js"></script>
 </body>
 </html>
