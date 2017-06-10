@@ -28,8 +28,15 @@ var vm = new Vue({
     methods:{
         register: function () {
             var _this = this;
-            var url = serverIp +"register.php?School="+_this.userInfo.school+"&Academy="+_this.userInfo.academy+"&Email="+_this.userInfo.email+"&Username="+_this.userInfo.name+"&Password="+_this.userInfo.pwd+"&callback=JSON_CALLBACK";
-            this.$http.post(url).then(function (res) {
+            var url = serverIp +"register.php";
+            var data = {
+                School: _this.userInfo.school,
+                Academy: _this.userInfo.academy,
+                Email: _this.userInfo.email,
+                Username: _this.userInfo.name,
+                Password: _this.userInfo.pwd
+            };
+            this.$http.post(url,data,{emulateJSON:true}).then(function (res) {
                 if(res.body.response==1){
                     //注册成功，进行跳转
                     window.location="login.html"
@@ -50,23 +57,15 @@ var vm = new Vue({
         },
         getCode: function () {
             var _this = this;
-            if(_this.userInfo.email!=""||_this.userInfo.email!=undefined||_this.userInfo.email!=''){
-                //正则表达式判断邮箱是否合法
-                var regInvalid=/(@.*@)|(\.\.)|(@\.)|(\.@)|(^\.)/;
-                var regValid=/^.+\@(\[?)[a-zA-Z0-9\-\.]+\.([a-zA-Z]{2,3}|[0-9]{1,3})(\]?)$/;
-                if(!regInvalid.test(_this.userInfo.email)&&regValid.test(_this.userInfo.email)){
-                    var url = serverIp + "&callback=JSON_CALLBACK";
-                    this.$http.post(url).then(function (res) {
-
-                    })
+            var url = serverIp + "sendmail.php?h_email="+_this.userInfo.email+"&callback=JSON_CALLBACK";
+            this.$http.get(url,{emulateJSON:true}).then(function (res) {
+                if(res.body.judge==1){
+                    alert("发送成功～");
                 }
                 else{
-                    this.userInfo.registerMessage="邮箱格式错误，请重新输入";
+                    alert("发送失败！");
                 }
-            }
-            else{
-                _this.registerMessage="邮箱不能为空"
-            }
+            })
         }
     }
 });
