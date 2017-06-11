@@ -34,9 +34,8 @@ var vm = new Vue({
                 /* res.body是取到的真正PHP返回的内容 */
                 if(res.body.response==1){
                     _this.loginMessage="";
-                    localStorage.setItem("lUserInfo",res.body);
                     localStorage.setItem("lLoginStatus",true);
-                    localStorage.setItem("UserName",_this.id);
+                    localStorage.setItem("lEmail",_this.userInfo.id);
                     window.location="index.html";
                 }
                 else{
