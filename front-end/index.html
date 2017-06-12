@@ -145,7 +145,7 @@
                             </header>
                             <div class="body clearfix">
                                 <ul class="clean-list">
-                                    <li v-for="item in Type"><div>{{item}}</div></li>
+                                    <li v-for="item in Type" v-on:click="directToKeyWord(item)"><div>{{item}}</div></li>
                                 </ul>
                             </div>
                         </div>

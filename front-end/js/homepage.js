@@ -39,7 +39,6 @@ var vm = new Vue({
                 Email:localStorage.getItem("lEmail")
             };
             var url=serverIp+"index.php";
-            //this.$http.post("./data.json",data,{emulateJSON:true}).then(function (res) {
             this.$http.post(url,data,{emulateJSON:true}).then(function (res) {
                 _this.NewFile=res.body.newfile;
                 _this.Download=res.body.download;

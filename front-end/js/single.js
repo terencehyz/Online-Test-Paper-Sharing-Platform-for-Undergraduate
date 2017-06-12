@@ -45,7 +45,7 @@ var vm = new Vue({
             var _this=this;
             var url=serverIp+"single.php";
             var data={
-                Type:""
+                Type:localStorage.getItem("currentKey")
             };
             _this.$http.post(url,data,{emulateJSON:true}).then(function (res) {
                 _this.wordList=res.body.list;
