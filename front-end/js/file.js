@@ -13,7 +13,6 @@ var vm = new Vue({
             Username:'',
             File_date:'',
             File_URl:'',
-            File_QR:'',
             File_link:''
         },
         ShowState:{
@@ -52,15 +51,18 @@ var vm = new Vue({
             };
             _this.$http.post(url,data,{emulateJSON:true}).then(function (res) {
                 if(res.body.response==1){
-                    _this.FileInfoFile_ID='';
-                    _this.FileInfoFilename='';
-                    _this.FileInfo.Type='';
-                    _this.FileInfo.About='';
-                    _this.FileInfo.Username='';
-                    _this.FileInfo.File_date='';
-                    _this.FileInfo.File_URl='';
-                    _this.FileInfo.File_QR='';
-                    _this.FileInfo.File_link='';
+                    _this.FileInfo.File_ID=res.body.Info.File_ID;
+                    _this.FileInfo.Filename=res.body.Info.Filename;
+                    _this.FileInfo.Type=res.body.Info.Type;
+                    _this.FileInfo.About=res.body.Info.About;
+                    _this.FileInfo.Username=res.body.Info.Username;
+                    _this.FileInfo.File_date=res.body.Info.File_date;
+                    _this.FileInfo.File_URl="http://ow365.cn/?i=12737&furl=http://119.29.152.53/file/"+res.body.Info.Name2;
+                    _this.FileInfo.File_link="http://119.29.152.53/file/"+res.body.Info.Name2;
+                    var ele = document.getElementById('fuck');
+                    ele.src=_this.FileInfo.File_URl;
+                    var ele2 = document.getElementById('QRCode');
+                    ele2.src="http://s.jiathis.com/qrcode.php?url=http://ow365.cn/?i=12737&furl=http://119.29.152.53/file/"+res.body.Info.Name2;
                 }
                 else{
 
