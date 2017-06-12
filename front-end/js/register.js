@@ -95,7 +95,7 @@ var vm = new Vue({
             var url = serverIp + "sendmail.php?h_email="+_this.userInfo.email+"&callback=JSON_CALLBACK";
             var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
             if(reg.test(_this.userInfo.email)){
-                _this.$http.post(url).then(function (res) {
+                _this.$http.get(url).then(function (res) {
                     if(res.body.judge==1){
                         alert("发送成功～");
                     }

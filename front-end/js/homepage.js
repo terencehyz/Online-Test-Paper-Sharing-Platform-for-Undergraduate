@@ -26,7 +26,7 @@ var vm = new Vue({
         directToSingle:function(File_id){
             localStorage.setItem("currentGo",File_id);
             //跳转到单一页面
-            window.location="";
+            window.location="file.html";
         },
         getView:function () {
             var _this=this;
@@ -36,11 +36,14 @@ var vm = new Vue({
             var url=serverIp+"index.php";
             //this.$http.post("./data.json",data,{emulateJSON:true}).then(function (res) {
             this.$http.post(url,data,{emulateJSON:true}).then(function (res) {
-                console.log(res.body);
                 _this.NewFile=res.body.newfile;
                 _this.Download=res.body.download;
                 _this.Upload=res.body.upload;
                 _this.UserInfo=res.body.user;
+                localStorage.setItem("lUserName",res.body.user.Username);
+                localStorage.setItem("lUserEmail",res.body.user.Email);
+                localStorage.setItem("lUserAcademy",res.body.user.Academy);
+                localStorage.setItem("lUserSchool",res.body.user.School);
                 _this.ShowState.showLogin=!localStorage.getItem("lLoginStatus");
                 _this.ShowState.showRegister=!localStorage.getItem("lLoginStatus");
                 _this.ShowState.showUser=localStorage.getItem("lLoginStatus");

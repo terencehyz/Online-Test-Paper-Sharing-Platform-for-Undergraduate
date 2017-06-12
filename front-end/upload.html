@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>主页|大学生在线酷考平台</title>
+    <title>上传|大学生在线酷考平台</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 
     <!-- Bootstrap styles -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
-   
+  
+
     <!-- Font-Awesome -->
     <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
 
@@ -16,7 +17,7 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600|PT+Serif:400,400italic' rel='stylesheet' type='text/css'>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="css/style.css" id="theme-styles">
+  <link rel="stylesheet" href="css/style.css" id="theme-styles">
 
     <!--[if lt IE 9]>      
         <script src="js/vendor/google/html5-3.6-respond-1.1.0.min.js"></script>
@@ -24,7 +25,7 @@
     
 </head>
 <body>
-    <div id="myIndex">
+    <div id="myUpload">
         <header>
             <div class="widewrapper masthead">
                 <!--这是头部-->
@@ -70,9 +71,9 @@
                         <a href="upload.html" style="margin-right: 20px">上传</a>
                         <a href="manage.html" style="margin-right: 20px">账号管理</a>
                     </div>
-
                     <div class="clean-searchbox">
                         <form action="#" method="get" accept-charset="utf-8">
+
                             <input class="searchfield" id="searchbox" type="text" placeholder="Search">
                             <button class="searchbutton" type="submit">
                                 <i class="fa fa-search"></i>
@@ -82,81 +83,23 @@
                 </div>
             </div>
         </header>
-        <!--这里是所有上传者上传的内容显示（中间部分）-->
+
         <div class="widewrapper main">
             <div class="container">
                 <div class="row">
-                    <!--这里是所有上传者上传的内容显示-->
-                    <div class="col-md-8 blog-main">
-                        <div class="row">
-
-                            <div class="col-md-6 col-sm-6" v-for="item in NewFile">
-                                <article class=" blog-teaser">
-                                    <header>
-                                        <br/>
-                                        <h3 v-on:click="directToSingle(item.File_ID)">{{item.Filename}}</h3>
-                                        <span class="meta">{{item.Username}}</span>
-                                        <hr>
-                                    </header>
-                                    <div class="body">
-                                        {{item.About}}
-                                    </div>
-                                    <div class="clearfix">
-                                        <div href="about.html" class="btn btn-clean-one" v-on:click="directToSingle(item.File_ID)">Read more</div>
-                                    </div>
-                                </article>
+                    <div class="col-md-6 col-md-offset-3 clean-superblock" id="contact">
+                        <h2>文档上传</h2>
+                        <small>目前支持格式doc、docx、xls、ppt、pptx、pdf</small>
+                        <div class="contact-form">
+                            <input type="file" name="file" id="contact-id" formenctype="multipart/form-data"  class="form-control input-lg">
+                            <input type="text" name="Filename" id="contact-name" placeholder="文档标题" class="form-control input-lg" v-model="fileInfo.name">
+                            <input type="text" name="Type" id="contact-email" placeholder="文档分类" class="form-control input-lg" v-model="fileInfo.type">
+                            <textarea rows="10" name="About" id="contact-body" placeholder="文档简介" class="form-control input-lg" v-model="fileInfo.about"></textarea>
+                            <div class="buttons clearfix">
+                                <button type="submit" class="btn btn-xlarge btn-clean-one" v-on:click="uploadFile">上 传</button>
                             </div>
-
                         </div>
                     </div>
-                    <!--这里是右侧自己上传和下载的记录-->
-                    <aside class="col-md-4 blog-aside">
-                        <!--上传-->
-                        <div class="aside-widget">
-                            <header>
-                                <h3>Upload</h3>
-                            </header>
-                            <div class="body">
-                                <ul class="clean-list">
-                                    <li v-for="item in Upload">
-                                        <div v-on:click="directToSingle(item.File_ID)">{{item.Filename}}</div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!--下载-->
-                        <div class="aside-widget">
-                            <header>
-                                <h3>Download</h3>
-                            </header>
-                            <div class="body">
-                                <ul class="clean-list">
-                                    <li v-for="item in Download">
-                                        <div v-on:click="directToSingle(item.File_ID)">{{item.Filename}}</div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- 这里想写一个文章分类，点击后能够分类别显示-->
-                        <div class="aside-widget">
-                            <header>
-                                <h3>Classification</h3>
-                            </header>
-                            <div class="body clearfix">
-                                <ul class="tags">
-                                    <li><a href="#">数据库</a></li>
-                                    <li><a href="#">软件工程</a></li>
-                                    <li><a href="#">大学英语</a></li>
-                                    <li><a href="#">概率论</a></li>
-                                    <li><a href="#">高等数学</a></li>
-                                    <li><a href="#">马克思</a></li>
-                                    <li><a href="#">c++</a></li>
-                                    <li><a href="#">数据结构</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </aside>
                 </div>
             </div>
         </div>
@@ -197,15 +140,16 @@
                 </div>
             </div>
             <div class="widewrapper copyright">
-                大学生在线酷考平台
+                我是个不知所措的页脚
+                <!-- Copyright 2015 More Templates
+             <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>-->
             </div>
         </footer>
     </div>
 
-    <!--<script src="https://unpkg.com/vue/dist/vue.js"></script>-->
     <script src="//cdn.bootcss.com/vue/2.3.3/vue.js"></script>
     <script src="node_modules/vue-resource/dist/vue-resource.js"></script>
-    <script src="js/homepage.js"></script>
+    <script src="js/upload.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/modernizr.js"></script>
