@@ -47,10 +47,10 @@ var vm = new Vue({
                 h_email: _this.userInfo.email,
                 Username: _this.userInfo.name,
                 Password: _this.userInfo.pwd,
-                contents: _this.confirmCode
+                captcha: _this.confirmCode
             };
 
-            if(_this.isNUll(_this.userInfo.school)&&_this.isNUll(_this.userInfo.academy)&&_this.isNUll(_this.userInfo.email)&&_this.isNUll(_this.userInfo.name)&&_this.isNUll(_this.userInfo.pwd)&&_this.isNUll(_this.confirmCode)){
+            //if(_this.isNUll(_this.userInfo.school)&&_this.isNUll(_this.userInfo.academy)&&_this.isNUll(_this.userInfo.email)&&_this.isNUll(_this.userInfo.name)&&_this.isNUll(_this.userInfo.pwd)&&_this.isNUll(_this.confirmCode)){
                 if(_this.userInfo.pwd==_this.userInfo.pwdConfirm){
                     //正则表达式验证邮箱正确性
                     var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
@@ -85,10 +85,10 @@ var vm = new Vue({
                     _this.userInfo.pwd="";
                     _this.userInfo.pwdConfirm="";
                 }
-            }
-            else {
-                _this.registerMessage="信息还不完全，再检查一下～～～";
-            }
+            //}
+            //else {
+              //  _this.registerMessage="信息还不完全，再检查一下～～～";
+            //}
         },
         getCode: function () {
             var _this = this;

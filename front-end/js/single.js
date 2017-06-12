@@ -16,7 +16,8 @@ var vm = new Vue({
             Academy:'',
             School:''
         },
-        wordList:[]
+        wordList:[],
+        key:''
     },
     mounted:function(){
         var _this=this;
@@ -38,6 +39,7 @@ var vm = new Vue({
             _this.UserInfo.Email=localStorage.getItem("lUserEmail");
             _this.UserInfo.Academy=localStorage.getItem("lUserAcademy");
             _this.UserInfo.School=localStorage.getItem("lUserSchool");
+            _this.key=localStorage.getItem("currentKey");
         },
         getView:function () {
             var _this=this;

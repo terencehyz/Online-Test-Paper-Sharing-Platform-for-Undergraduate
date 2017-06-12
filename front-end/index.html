@@ -141,18 +141,11 @@
                         <!-- 这里想写一个文章分类，点击后能够分类别显示-->
                         <div class="aside-widget">
                             <header>
-                                <h3>Classification</h3>
+                                <h3>Tags</h3>
                             </header>
                             <div class="body clearfix">
-                                <ul class="tags">
-                                    <li><a href="#">数据库</a></li>
-                                    <li><a href="#">软件工程</a></li>
-                                    <li><a href="#">大学英语</a></li>
-                                    <li><a href="#">概率论</a></li>
-                                    <li><a href="#">高等数学</a></li>
-                                    <li><a href="#">马克思</a></li>
-                                    <li><a href="#">c++</a></li>
-                                    <li><a href="#">数据结构</a></li>
+                                <ul class="clean-list">
+                                    <li v-for="item in Type"><div>{{item}}</div></li>
                                 </ul>
                             </div>
                         </div>
