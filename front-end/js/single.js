@@ -25,6 +25,10 @@ var vm = new Vue({
         _this.getState();
     },
     methods:{
+        logOut:function () {
+            localStorage.clear();
+            window.location.href="index.html";
+        },
         directToSingle:function(File_id){
             localStorage.setItem("currentGo",File_id);
             //跳转到单一页面

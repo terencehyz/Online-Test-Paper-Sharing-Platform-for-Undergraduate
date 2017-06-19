@@ -3,7 +3,7 @@
  */
 var serverIp="http://119.29.152.53/php/";
 var vm = new Vue({
-    el:"#myRegister",
+    el:"#app",
     data:{
         userInfo:{
             name:"",
@@ -28,6 +28,10 @@ var vm = new Vue({
         }
     },
     methods:{
+        logOut:function () {
+            localStorage.clear();
+            window.location.href="index.html";
+        },
         isNull:function (str) {
             var flag;
             if(str.length>0){
@@ -59,7 +63,7 @@ var vm = new Vue({
                             if(res.body.response==1){
                                 //注册成功，进行跳转
                                 alert("注册成功！2秒后跳转到登录页面");
-                                window.location="login.html"
+                                window.location="index.html"
                             }
                             if(res.body.response==0){
                                 _this.registerMessage="系统错误，请稍后再试";

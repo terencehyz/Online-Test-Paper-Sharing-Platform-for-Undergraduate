@@ -31,7 +31,7 @@
                 <!--这是头部-->
                 <div class="container">
                     <!--logo-->
-                    <a href="index.html" id="logo">
+                    <a href="homepage.html" id="logo">
                         <img src="img/logo.png" alt="clean Blog">
                     </a>
 
@@ -46,16 +46,16 @@
                             <ul class="nav nav-pills navbar-nav">
 
                                 <li>
-                                    <a href="login.html" v-show="ShowState.showLogin">Sign in</a>
+                                    <a href="index.html" v-show="ShowState.showLogin">Sign in</a>
                                 </li>
                                 <li>
                                     <a href="register.html" v-show="ShowState.showRegister">Sign up</a>
                                 </li>
                                 <li>
-                                    <div href="#" v-show="ShowState.showUser" style="color: black">Credit</div>
+                                    <div href="#" v-show="ShowState.showUser" style="color: black">{{UserInfo.School}}的{{UserInfo.Username}}同学你好!</div>
                                 </li>
                                 <li>
-                                    <div href="#" v-show="ShowState.showUser" style="color: black">{{UserInfo.School}}的{{UserInfo.Username}}同学你好!</div>
+                                    <div href="#" v-show="ShowState.showUser" style="color: black" v-on:click="logOut">登出</div>
                                 </li>
                             </ul>
                         </div>
@@ -67,14 +67,13 @@
             <div class="widewrapper subheader">
                 <div class="container">
                     <div class="clean-breadcrumb">
-                        <a href="index.html" style="margin-right: 20px">主页</a>
+                        <a href="homepage.html" style="margin-right: 20px">主页</a>
                         <a href="upload.html" style="margin-right: 20px">上传</a>
                         <a href="manage.html" style="margin-right: 20px">账号管理</a>
                     </div>
 
                     <div class="clean-searchbox">
                         <form action="#" method="get" accept-charset="utf-8">
-
                             <input class="searchfield" id="searchbox" type="text" placeholder="Search">
                             <button class="searchbutton" type="submit">
                                 <i class="fa fa-search"></i>
@@ -89,11 +88,9 @@
             <div class="container">
                 <div class="row">
                     <!--  /////////////////////////////下面内容是左侧/////////////////////////-->
-                    <div class="col-md-8 blog-main">
-
+                    <div class="col-md-10 col-md-offset-1 blog-main">
                         <aside class="comments" id="comments">
                             <h2><i class="fa fa-comments"></i>Tag：{{key}}</h2>
-
                             <article class="comment" v-for="item in wordList">
                                 <header class="clearfix">
                                     <div class="meta">
@@ -105,14 +102,9 @@
                                     {{item.About}}
                                 </div>
                             </article>
-
                             <hr>
-
                         </aside>
-
-
                     </div>
-
                 </div>
             </div>
         </div>
@@ -167,7 +159,7 @@
     </div>
 
     <script src="//cdn.bootcss.com/vue/2.3.3/vue.js"></script>
-    <script src="node_modules/vue-resource/dist/vue-resource.js"></script>
+    <script src="//cdn.bootcss.com/vue-resource/1.3.3/vue-resource.js"></script>
     <script src="js/single.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>

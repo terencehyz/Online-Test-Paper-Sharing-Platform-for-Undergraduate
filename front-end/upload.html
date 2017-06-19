@@ -31,7 +31,7 @@
                 <!--这是头部-->
                 <div class="container">
                     <!--logo-->
-                    <a href="index.html" id="logo">
+                    <a href="homepage.html" id="logo">
                         <img src="img/logo.png" alt="clean Blog">
                     </a>
 
@@ -46,16 +46,16 @@
                             <ul class="nav nav-pills navbar-nav">
 
                                 <li>
-                                    <a href="login.html" v-show="ShowState.showLogin">Sign in</a>
+                                    <a href="index.html" v-show="ShowState.showLogin">Sign in</a>
                                 </li>
                                 <li>
                                     <a href="register.html" v-show="ShowState.showRegister">Sign up</a>
                                 </li>
                                 <li>
-                                    <div href="#" v-show="ShowState.showUser" style="color: black">Credit</div>
+                                    <div href="#" v-show="ShowState.showUser" style="color: black">{{UserInfo.School}}的{{UserInfo.Username}}同学你好!</div>
                                 </li>
                                 <li>
-                                    <div href="#" v-show="ShowState.showUser" style="color: black">{{UserInfo.School}}的{{UserInfo.Username}}同学你好!</div>
+                                    <div href="#" v-show="ShowState.showUser" style="color: black" v-on:click="logOut">登出</div>
                                 </li>
                             </ul>
                         </div>
@@ -67,13 +67,13 @@
             <div class="widewrapper subheader">
                 <div class="container">
                     <div class="clean-breadcrumb">
-                        <a href="index.html" style="margin-right: 20px">主页</a>
+                        <a href="homepage.html" style="margin-right: 20px">主页</a>
                         <a href="upload.html" style="margin-right: 20px">上传</a>
                         <a href="manage.html" style="margin-right: 20px">账号管理</a>
                     </div>
+
                     <div class="clean-searchbox">
                         <form action="#" method="get" accept-charset="utf-8">
-
                             <input class="searchfield" id="searchbox" type="text" placeholder="Search">
                             <button class="searchbutton" type="submit">
                                 <i class="fa fa-search"></i>
@@ -90,15 +90,14 @@
                     <div class="col-md-6 col-md-offset-3 clean-superblock" id="contact">
                         <h2>文档上传</h2>
                         <small>目前支持格式doc、docx、xls、ppt、pptx、pdf</small>
-                        <div class="contact-form">
-                            <input type="file" name="file" id="contact-id" formenctype="multipart/form-data"  class="form-control input-lg">
-                            <input type="text" name="Filename" id="contact-name" placeholder="文档标题" class="form-control input-lg" v-model="fileInfo.name">
-                            <input type="text" name="Type" id="contact-email" placeholder="文档分类" class="form-control input-lg" v-model="fileInfo.type">
-                            <textarea rows="10" name="About" id="contact-body" placeholder="文档简介" class="form-control input-lg" v-model="fileInfo.about"></textarea>
-                            <div class="buttons clearfix">
-                                <button type="submit" class="btn btn-xlarge btn-clean-one" v-on:click="uploadFile">上 传</button>
-                            </div>
-                        </div>
+                        <form action="http://119.29.152.53/php/upload.php" class="contact-form" name="form" method="post" enctype="multipart/form-data" id="upload_form">
+                            <input type="file" name="file" />
+                            <input type="text" name="Filename" id="contact-name" placeholder="文档标题" class="form-control input-lg" >
+                            <input type="text" name="Type" id="contact-email" placeholder="文档分类" class="form-control input-lg" >
+                            <textarea rows="10" name="About" id="contact-body" placeholder="文档简介" class="form-control input-lg" ></textarea>
+                            <input type="text" name="Email" hidden="hidden" value="UserInfo.Email">
+                            <input type="submit" name="submit" value="上传" class="btn btn-xlarge btn-clean-one" />
+                        </form>
                     </div>
                 </div>
             </div>
@@ -154,11 +153,20 @@
     </div>
 
     <script src="//cdn.bootcss.com/vue/2.3.3/vue.js"></script>
-    <script src="node_modules/vue-resource/dist/vue-resource.js"></script>
+    <script src="//cdn.bootcss.com/vue-resource/1.3.3/vue-resource.js"></script>
     <script src="js/upload.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/modernizr.js"></script>
+    <script>
+        /*function shangchuan() {
+            document.forms['form'].submit;
+            //document.getElementById('upload_form').submit;
+            //console.log("add");
+            //window.location.href='upload.html';
+            scrollTo(0,0);
+        }*/
+    </script>
 
 </body>
 </html>

@@ -36,7 +36,7 @@ var vm = new Vue({
                     _this.loginMessage="";
                     localStorage.setItem("lLoginStatus",true);
                     localStorage.setItem("lEmail",_this.userInfo.id);
-                    window.location="index.html";
+                    window.location="homepage.html";
                 }
                 else{
                     _this.loginMessage="用户名或密码错误！请重试";

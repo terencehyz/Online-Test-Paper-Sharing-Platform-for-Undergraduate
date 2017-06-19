@@ -24,6 +24,10 @@ var vm = new Vue({
 
     },
     methods:{
+        logOut:function () {
+            localStorage.clear();
+            window.location.href="index.html";
+        },
         directToKeyWord:function(KeyWord){
             localStorage.setItem("currentKey",KeyWord);
             window.location="single.html";
